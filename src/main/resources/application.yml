@@ -1,0 +1,7 @@
+security:
+  user:
+    password: password
+    name: dragon
+logging:
+  level:
+    org.springframework.security: INFO

@@ -1,0 +1,15 @@
+{
+  "name": "mugloar-dating",
+  "private": true,
+  "version": "0.0.0",
+  "description": "",
+  "license": "MIT",
+  "devDependencies": {
+    "bower": "^1.7.7",
+    "gulp": "3.9.1",
+    "gulp-util": "3.0.7"
+  },
+  "scripts": {
+    "postinstall": "bower install"
+  }
+}
