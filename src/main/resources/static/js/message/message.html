@@ -8,9 +8,18 @@
                 </h2>
                 <hr>
             </div>
+            <div ng-show="controller.weather" class="col-lg-12 text-center">
+                <img class="img-responsive img-full" src="img/berry-dragon.jpg" alt="">
+                <h2>Weather update
+                    <br>
+                    <small>{{controller.date}}</small>
+                </h2>
+                <p>{{controller.weather}}..<strong> {{controller.battle.knight.name}}</strong> is just showed up!</p>
+                <hr>
+            </div>
             <div class="col-lg-12 text-center">
                 <img class="img-responsive img-full" src="img/knight-monthly.png" alt="">
-                <h2>Last news just for you!
+                <h2>New issue of "Knight monthly" has just been released
                     <br>
                     <small>{{controller.date}}</small>
                 </h2>

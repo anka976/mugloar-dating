@@ -1,4 +1,4 @@
-angular.module('home', []).controller('home', function($http, HomeSrv, $uibModal ) {
+angular.module('home', []).controller('home', function($http, AjaxSrv, $uibModal ) {
 	var self = this;
 
 	self.boy = true;
@@ -18,7 +18,7 @@ angular.module('home', []).controller('home', function($http, HomeSrv, $uibModal
 			url:"http://www.dragonsofmugloar.com/dating/api/profile/random?gender="+gender
 		};
 		for (i = 0; i < 3; i++) {
-			HomeSrv.getMate(req).then(function(data) {
+			AjaxSrv.request(req).then(function(data) {
 				self.mates.push(data);
 			});
 		}
@@ -57,16 +57,29 @@ angular.module('home').controller('ModalInstanceCtrl', function ($uibModalInstan
 (function() {
 	'use strict';
 
-	angular.module('home').service('HomeSrv', HomeSrv);
+	angular.module('home').service('AjaxSrv', AjaxSrv);
 
-	HomeSrv.$inject = ['$q'];
+	AjaxSrv.$inject = ['$q'];
 
-	function HomeSrv ($q) {
+	function AjaxSrv ($q) {
 		return {
-			getMate: function(req) {
+			request: function(req) {
 				var deferred = $q.defer();
 				$.ajax(req).done(function( data ) {
 					deferred.resolve(data);
+				}).fail(function( data ) {
+					console.log(data);
+				});
+				return deferred.promise;
+			},
+			requestXML: function(req, prop) {
+				var deferred = $q.defer();
+				$.ajax(req).done(function( data ) {
+					if (prop) {
+						deferred.resolve($( data ).find( prop ).text());
+					} else {
+						deferred.resolve(data);
+					}
 				}).fail(function( data ) {
 					console.log(data);
 				});
