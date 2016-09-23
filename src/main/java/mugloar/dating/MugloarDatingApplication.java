@@ -34,15 +34,6 @@ public class MugloarDatingApplication {
 		return user;
 	}
 
-	@RequestMapping("/resource")
-	@ResponseBody
-	public Map<String, Object> home() {
-		Map<String, Object> model = new HashMap<String, Object>();
-		model.put("id", UUID.randomUUID().toString());
-		model.put("content", "Hello World");
-		return model;
-	}
-
 	public static void main(String[] args) {
 		SpringApplication.run(MugloarDatingApplication.class, args);
 	}

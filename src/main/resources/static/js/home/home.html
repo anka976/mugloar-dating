@@ -1,4 +1,81 @@
-<h1>Welcome</h1>
-<div>
-	<p>Hello {{controller.user}}!</p>
+<script type="text/ng-template" id="myModalContent.html">
+	<div class="modal-header">
+		<h3 class="modal-title" id="modal-title">Meet {{controller.mate.name}}!</h3>
+	</div>
+	<div class="modal-body" id="modal-body">
+		<div class="col-md-12 text-center">
+			<img class="img-responsive img-thumbnail" src="{{controller.mate.image}}" alt="">
+			<h3>{{controller.mate.name}}:
+				<small>{{controller.mate.description}}</small>
+			</h3>
+		</div>
+		<div ng-show="controller.lighted" class="col-md-12 text-center text-danger">
+			<h1>{{controller.mate.likesYou ? (controller.mate.name + ' loves you! Go out to the Great Rock to marry ' +
+				(controller.mate.gender == 'girl'? 'her' : 'him') + '!') :
+				(controller.mate.name + ' hates you to
+			death')}}</h1>
+		</div>
+	</div>
+	<div class="modal-footer">
+		<button class="btn btn-primary pull-right" ng-disabled="controller.lighted" type="button" ng-click="controller.lighted = true">
+			Light The Flame!</button>
+		<button class="btn btn-warning pull-left" type="button" ng-click="controller.cancel()">{{controller.mate.likesYou &&
+																							   controller.lighted
+																							   ?'Let\'s go!' : 'To
+																							   Ashes'}}</button>
+	</div>
+</script>
+
+<div class="row">
+	<div class="box">
+		<div class="col-lg-12">
+			<hr>
+			<h2 class="intro-text text-center">
+				<strong>Hello {{controller.user}}! Your Flames are waiting for you</strong>
+			</h2>
+			<hr>
+		</div>
+		<div class="col-sm-12 col-md-6">
+			<div><img class="img-responsive img-center" src="img/meet.gif" alt=""></div>
+		</div>
+		<div class="col-md-6">
+			<p class="text-center">Meet your Flames, invite them to to pottery class or yoga. Have fun, don't mess up The
+								   Kingdom!</p>
+			<p class="text-center">Who do you want to see?</p>
+
+			<div class="well-sm col-sm-12 col-md-12">
+				<div class="col-xs-6  col-sm-6 col-md-6 text-center">
+					<a href="#" ng-click="controller.getNewMates(true)">
+						<img class="img-circle" src="img/boy.jpg">
+					</a>
+					<div class="col-md-12 h3" ng-class="{'text-info':controller.boy}">New Boys!</div>
+				</div>
+				<div class="col-xs-6  col-sm-6 col-md-6 text-center">
+					<a href="#" ng-click="controller.getNewMates(false)">
+						<img class="img-circle" src="img/girl.png"> </a>
+					<div class="col-md-12 h3" ng-class="{'text-info':!controller.boy}">New Girls!</div>
+				</div>
+			</div>
+		</div>
+		<div class="clearfix"></div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="box">
+		<div class="col-lg-12">
+			<hr>
+			<h2 class="intro-text text-center">Look at those
+				<strong>brilliant {{controller.boy ? 'boy' : 'girl'}}</strong> Flames!
+			</h2>
+			<hr>
+		</div>{{mm}}
+		<div ng-repeat="mate in controller.mates" class="col-sm-4 text-center">
+			<a href="#"
+			   ng-click="controller.showMate(mate)"><img class="img-responsive img-thumbnail" src="{{mate.image}}" alt=""></a>
+			<h3>{{mate.name}}
+			</h3>
+		</div>
+		<div class="clearfix"></div>
+	</div>
 </div>

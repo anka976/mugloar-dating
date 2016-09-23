@@ -190,3 +190,17 @@ footer p {
         clear: both;
     }
 }
+
+.img-circle {
+    width: 120px;
+    height: 120px;
+    border-radius: 60%;
+}
+
+.img-responsive.img-center{
+    width: 100%;
+}
+
+.img-thumbnail {
+    max-height: 350px;
+}
