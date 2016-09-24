@@ -78,7 +78,7 @@ angular.module('home').controller('ModalInstanceCtrl', function ($uibModalInstan
 					if (prop) {
 						deferred.resolve($( data ).find( prop ).text());
 					} else {
-						deferred.resolve(data);
+						deferred.resolve($( data ));
 					}
 				}).fail(function( data ) {
 					console.log(data);
