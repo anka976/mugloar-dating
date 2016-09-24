@@ -13,15 +13,15 @@ angular.module('navigation', ['ngRoute', 'auth']).controller(
 
 			self.authenticated = function() {
 				return auth.authenticated;
-			}
+			};
 
 			self.login = function() {
 				auth.authenticate(self.credentials, function(authenticated) {
 					if (authenticated) {
-						console.log("Login succeeded")
+						console.log("Login succeeded");
 						self.error = false;
 					} else {
-						console.log("Login failed")
+						console.log("Login failed");
 						self.error = true;
 					}
 				})

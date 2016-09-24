@@ -10,19 +10,19 @@
 			</h3>
 		</div>
 		<div ng-show="controller.lighted" class="col-md-12 text-center text-danger">
-			<h1>{{controller.mate.likesYou ? (controller.mate.name + ' loves you! Go out to the Great Rock to marry ' +
+			<h1>
+				{{controller.mate.likesYou ? (controller.mate.name + ' loves you! Go out to the Great Rock to marry ' +
 				(controller.mate.gender == 'girl'? 'her' : 'him') + '!') :
-				(controller.mate.name + ' hates you to
-			death')}}</h1>
+				(controller.mate.name + ' hates you to death')}}
+			</h1>
 		</div>
 	</div>
 	<div class="modal-footer">
 		<button class="btn btn-primary pull-right" ng-disabled="controller.lighted" type="button" ng-click="controller.lighted = true">
 			Light The Flame!</button>
-		<button class="btn btn-warning pull-left" type="button" ng-click="controller.cancel()">{{controller.mate.likesYou &&
-																							   controller.lighted
-																							   ?'Let\'s go!' : 'To
-																							   Ashes'}}</button>
+		<button class="btn btn-warning pull-left" type="button" ng-click="controller.cancel()">
+			{{controller.mate.likesYou && controller.lighted ?'Let\'s go!' : 'To Ashes'}}
+		</button>
 	</div>
 </script>
 
@@ -39,8 +39,9 @@
 			<div><img class="img-responsive img-center" src="img/meet.gif" alt=""></div>
 		</div>
 		<div class="col-md-6">
-			<p class="text-center">Meet your Flames, invite them to pottery class or yoga. Have fun, don't mess up The
-								   Kingdom!</p>
+			<p class="text-center">
+				Meet your Flames, invite them to pottery class or yoga. Have fun, don't mess up The Kingdom!
+			</p>
 			<p class="text-center">Who do you want to see?</p>
 
 			<div class="well-sm col-sm-12 col-md-12">

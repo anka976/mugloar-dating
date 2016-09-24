@@ -25,7 +25,7 @@ angular.module('home', []).controller('home', function($http, AjaxSrv, $uibModal
 
 	};
 	self.showMate = function (mate) {
-		var modalInstance = $uibModal.open({
+		$uibModal.open({
 			animation: true,
 			ariaLabelledBy: 'modal-title',
 			ariaDescribedBy: 'modal-body',
@@ -68,7 +68,8 @@ angular.module('home').controller('ModalInstanceCtrl', function ($uibModalInstan
 				$.ajax(req).done(function( data ) {
 					deferred.resolve(data);
 				}).fail(function( data ) {
-					console.log(data);
+					deferred.reject(data);
+					console.error(data);
 				});
 				return deferred.promise;
 			},
@@ -81,7 +82,8 @@ angular.module('home').controller('ModalInstanceCtrl', function ($uibModalInstan
 						deferred.resolve($( data ));
 					}
 				}).fail(function( data ) {
-					console.log(data);
+					deferred.reject(data);
+					console.error(data);
 				});
 				return deferred.promise;
 			}
