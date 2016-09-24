@@ -2,6 +2,8 @@
 
 This is a [Spring Boot](https://spring.io/)  application, which uses [Angular 1.5](https://angularjs.org/) with [Bootstrap](http://getbootstrap.com/) on frontend and Spring for backend.  
 
+Project requires Java 8. Main "dating" logic is stored in `static/js/home/home.js` script. "Trending" logic is stored in `static/js/message/message.js` script.
+
 To start app you need to clone the project and run it with Maven:
 
 	 mvn spring-boot:run
