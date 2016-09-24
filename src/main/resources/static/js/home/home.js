@@ -14,10 +14,11 @@ angular.module('home', []).controller('home', function($http, AjaxSrv, $uibModal
 		var gender = self.boy ? "boy" : "girl";
 
 		var req = {
+			async: false,
 			type: "GET",
 			url:"http://www.dragonsofmugloar.com/dating/api/profile/random?gender="+gender
 		};
-		for (i = 0; i < 3; i++) {
+		for (var i = 0; i < 3; i++) {
 			AjaxSrv.request(req).then(function(data) {
 				self.mates.push(data);
 			});
@@ -69,7 +70,6 @@ angular.module('home').controller('ModalInstanceCtrl', function ($uibModalInstan
 					deferred.resolve(data);
 				}).fail(function( data ) {
 					deferred.reject(data);
-					console.error(data);
 				});
 				return deferred.promise;
 			},
@@ -83,7 +83,6 @@ angular.module('home').controller('ModalInstanceCtrl', function ($uibModalInstan
 					}
 				}).fail(function( data ) {
 					deferred.reject(data);
-					console.error(data);
 				});
 				return deferred.promise;
 			}
